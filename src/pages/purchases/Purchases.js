@@ -92,7 +92,7 @@ const Purchases = () => {
                                     <tr key={purchase.purchaseId}>
                                         <td>{purchase.purchaseId}</td>
                                         <td>{formatDate(purchase.createdAt)}</td>
-                                        <td>{purchase.totalValue.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+                                        <td>{purchase.totalValue.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
                                         <td>{purchase.provider.name}</td>
                                         <td>{purchase.user.name}</td>
                                         <td>

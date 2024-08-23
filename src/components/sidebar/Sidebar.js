@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faHouse, faTags, faBoxesStacked, faTruckFast, faBasketShopping, faUsers, faHandHoldingDollar, faUsersGear } from '@fortawesome/free-solid-svg-icons';
+
+import { faAngleRight,faBell, faHouse, faTags, faBoxesStacked, faTruckFast, faBasketShopping, faUsers, faHandHoldingDollar, faUsersGear } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/logo.png';
 import './sidebar.css';
 
@@ -36,7 +37,8 @@ const Sidebar = () => {
                     </span>
                     <div className="text logo-text">
                         <span className="name">Inventorize</span>
-                        <span className="profession">Inventory Management System</span>
+                        <span className="profession"> 
+                         </span>
                     </div>
                 </div>
                 <FontAwesomeIcon
@@ -54,6 +56,8 @@ const Sidebar = () => {
                                 <span className="text nav-text">Home</span>
                             </Link>
                         </li>
+
+                        
                         <li className={`nav-link ${selectedView === "categories" ? "selected" : ""}`}>
                             <Link to="/categories">
                                 <FontAwesomeIcon icon={faTags} className="icon" />
@@ -78,20 +82,35 @@ const Sidebar = () => {
                                 <span className="text nav-text">Purchases</span>
                             </Link>
                         </li>
+                        { user && user.admin === true && (
                         <li className={`nav-link ${selectedView === "customers" ? "selected" : ""}`}>
                             <Link to="/customers">
                                 <FontAwesomeIcon icon={faUsers} className="icon" />
                                 <span className="text nav-text">Customers</span>
                             </Link>
+                            
                         </li>
+                        )}
+                        { user && user.admin === true && (
                         <li className={`nav-link ${selectedView === "sales" ? "selected" : ""}`}>
                             <Link to="/sales">
                                 <FontAwesomeIcon icon={faHandHoldingDollar} className="icon" />
                                 <span className="text nav-text">Sales</span>
                             </Link>
                         </li>
+                        )}
+                        <li className={`nav-link ${selectedView === "notification" ? "selected" : ""}`}>
+                            <Link to="notification">
+                            <FontAwesomeIcon icon={faBell} className="icon" />
+                            <span className="text nav-text">Notification</span>
+                            </Link>
+                        </li>
+
                     </ul>
                 </div>
+
+            
+
                 {/* Only if the user is admin */}
                 { user && user.admin === true && (
                     <div className="bottom-content">
@@ -106,6 +125,8 @@ const Sidebar = () => {
                     </div>
                 )}
             </div>
+
+         
         </nav>
     );
 }

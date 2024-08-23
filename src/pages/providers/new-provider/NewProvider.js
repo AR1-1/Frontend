@@ -49,11 +49,11 @@ const NewProvider = () => {
             });
 
             if (response.ok) {
-                alert('Proveedor creado exitosamente');
+                alert('Providers created successfully');
                 navigate('/providers');
                 return;
             }
-            alert("provider is created, verfication SuccessFul");
+            alert("Providers could not be created, check the data");
         } catch (error) {
             console.log(error);
             alert("Error creating provider");
@@ -64,7 +64,7 @@ const NewProvider = () => {
     return (
         <div className="newProvider-container">
 
-            <div className="text">New Provider</div>
+            <div className="text">New Providers</div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <div className="grid-form">
@@ -82,7 +82,7 @@ const NewProvider = () => {
                         </div>
 
                         <div className="form-item">
-                            <label htmlFor="phoneNumber">phoneNumber</label>
+                            <label htmlFor="phoneNumber">PhoneNo</label>
                             <input
                                 className="input"
                                 type="text"

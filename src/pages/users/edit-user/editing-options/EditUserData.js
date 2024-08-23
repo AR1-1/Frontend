@@ -99,14 +99,14 @@ const EditUserData = () => {
             });
 
             if (response.ok) {
-                alert('Usuario actualizado exitosamente');
+                alert('User successfully updated');
                 navigate(`/edit-user/${id}`);
                 return;
             }
-            alert("El usuario no pudo ser actualizado, verifique los datos");
+            alert("The user could not be updated, check the data");
         } catch (error) {
             console.log(error);
-            alert("Error al actualizar el usuario");
+            alert("Error updating user");
         }
         setSubmitDisabled(false);
     }
@@ -114,13 +114,13 @@ const EditUserData = () => {
     return (
         <div className="editUserData-container">
 
-            <div className="text">Editar Usuario</div>
+            <div className="text">Edit User</div>
             {!isLoading ? (
                 <div className="form-container">
                     <form onSubmit={handleSubmit}>
                         <div className="grid-form">
                             <div className="form-item">
-                                <label htmlFor="name">Nombre</label>
+                                <label htmlFor="name">Name</label>
                                 <input
                                     className="input"
                                     type="text"
@@ -133,7 +133,7 @@ const EditUserData = () => {
                             </div>
 
                             <div className="form-item">
-                                <label htmlFor="username">Usuario</label>
+                                <label htmlFor="username">User</label>
                                 <input
                                     className="input"
                                     type="text"
@@ -146,7 +146,7 @@ const EditUserData = () => {
                             </div>
 
                             <div className="form-item">
-                                <label htmlFor="phoneNumber">Teléfono</label>
+                                <label htmlFor="phoneNumber">phoneNumber</label>
                                 <input
                                     className="input"
                                     type="text"
@@ -159,7 +159,7 @@ const EditUserData = () => {
                             </div>
 
                             <div className="form-item">
-                                <label htmlFor="email">Correo</label>
+                                <label htmlFor="email">Email</label>
                                 <input
                                     className="input"
                                     type="email"
@@ -173,7 +173,7 @@ const EditUserData = () => {
 
                             {userVerification().isAdmin && (
                                 <div className="form-item">
-                                    <label htmlFor="admin">Administrador</label>
+                                    <label htmlFor="admin">Administrator</label>
                                     <select
                                         className="input"
                                         id="admin"
@@ -181,7 +181,7 @@ const EditUserData = () => {
                                         onChange={handleChange}
                                         required
                                     >
-                                        <option value={true}>Sí</option>
+                                        <option value={true}>Yes</option>
                                         <option value={false}>No</option>
                                     </select>
                                 </div>
@@ -190,7 +190,7 @@ const EditUserData = () => {
 
                         <div className="button-container">
                             <button className="btn" type="submit" disabled={submitDisabled}>
-                                Actualizar
+                                Submit
                             </button>
                         </div>
                     </form>

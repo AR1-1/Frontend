@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
-import avatar from '../../assets/avatar.svg';
+// import user from '../../assets/logo.png';
 import './login.css';
 import LoginLayout from './Layout';
 import { API } from '../../env';
@@ -109,7 +109,7 @@ const Login = () => {
             setPassword('');
 
             navigate('/');
-            alert("Las credenciales no coinciden");
+            alert("Incorrect credentials");
         } catch (error) {
             console.log(error);
             // Clear username and password fields
@@ -123,8 +123,8 @@ const Login = () => {
         <LoginLayout>
             <div className="login-content">
                 <form onSubmit={handleFormSubmit}>
-                    <img src={avatar} alt="login-avatar" />
-                    <h2 className="title">Login Session</h2>
+                    {/* <img src={user} alt="login-avatar" /> */}
+                    <h2 className="title">login</h2>
                     <div className="input-div one">
                         <div className="icon">
                             <FontAwesomeIcon icon={faUser} className="i" />
@@ -150,9 +150,9 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <Link to="/forgot-login">¿Olvidaste tu contraseña?</Link> */}
+                    {/* <Link to="/forgot-login">forgot login?</Link> */}
                     <button type="submit" className="btn" disabled={submitDisabled}>
-                        Enter
+                        Submit
                     </button>
                 </form>
             </div>

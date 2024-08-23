@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import './providers.css';
 import '../../styles/addbox.css';
 import SearchBox from '../../components/search-box/SearchBox';
@@ -62,13 +62,13 @@ const Providers = () => {
     return (
         <div className="providers-container">
 
-            <div className="text">Proveedores</div>
+            <div className="text">Providers</div>
 
             <div className="options">
                 <SearchBox onSearch={handleSearch} disabled={isLoading} />
                 <Link to="/new-provider" className="add-box">
                     <FontAwesomeIcon icon={faPlus} className="icon" />
-                    <span className="text">Nuevo proveedor</span>
+                    <span className="text">New providers</span>
                 </Link>
             </div>
 
@@ -78,10 +78,11 @@ const Providers = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>NOMBRE</th>
-                                <th>TELÉFONO</th>
+                                <th>Name</th>
+                                <th>PhoneNo</th>
                                 <th>EMAIL</th>
-                                <th>EDITAR</th>
+                                <th>EDIT</th>
+                                <th>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,11 +98,16 @@ const Providers = () => {
                                                 <FontAwesomeIcon icon={faPen} className="pen-icon" />
                                             </Link>
                                         </td>
+                                        <td>
+                                            <Link to={`/edit-provider/${provider.providerId}`}>
+                                                <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
+                                            </Link>
+                                        </td>
                                     </tr>
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="5">No hay resultados</td>
+                                    <td colSpan="5">No results</td>
                                 </tr>
                             )}
                         </tbody>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import './categories.css';
 import '../../styles/addbox.css';
 import SearchBox from '../../components/search-box/SearchBox';
@@ -22,6 +22,11 @@ const Categories = () => {
 
     const navigate = useNavigate();
 
+    //only seen by the user which is loggined
+    const user = JSON.parse(localStorage.getItem('user'));
+    const userId = user?.id;  // Get the logged-in user's ID
+
+
     useEffect(() => {
         // Permission validation
         if (!userVerification().isAuthenticated) {
@@ -37,6 +42,10 @@ const Categories = () => {
         }
         data.append('page', page);
         data.append('pageSize', pageSize);
+
+        // Include the userId in the request
+        data.append('userId', userId); 
+
 
         const url = new URL(`${API}/api/v1/category`);
         url.search = new URLSearchParams(data).toString();
@@ -63,7 +72,7 @@ const Categories = () => {
         <div className="categories-container">
 
             <div className="text">Categories</div>
-
+            
             <div className="options">
                 <SearchBox onSearch={handleSearch} disabled={isLoading} />
                 <Link to="/new-category" className="add-box">
@@ -71,6 +80,7 @@ const Categories = () => {
                     <span className="text">New Category</span>
                 </Link>
             </div>
+            
 
             {!isLoading ? (
                 <div className="table-container">
@@ -80,6 +90,7 @@ const Categories = () => {
                                 <th>ID</th>
                                 <th>NAME</th>
                                 <th>EDIT</th>
+                                <th>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,6 +102,11 @@ const Categories = () => {
                                         <td>
                                             <Link to={`/edit-category/${category.categoryId}`}>
                                                 <FontAwesomeIcon icon={faPen} className="pen-icon" />
+                                            </Link>
+                                        </td>
+                                        <td>
+                                            <Link to={`/edit-category/${category.categoryId}`}>
+                                                <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
                                             </Link>
                                         </td>
                                     </tr>

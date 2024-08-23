@@ -145,7 +145,7 @@
 
 .dashboard .panel .panel-footer .btn::after {
     content: "";
-    background-color: #ee7355;
+    background-color: #6248c6;
     position: absolute;
     z-index: -1;
     padding: 16px 20px;

@@ -38,15 +38,15 @@ const EditUser = () => {
     return (
         <div className="editUser-container">
 
-            <div className="text">Editar Usuario</div>
+            <div className="text">Edit User</div>
             <div className='editing-options'>
                 <div className="grid-form">
                     <Link to={`/edit-user-data/${id}`} className='option'>
-                        <span className="text">Editar datos</span>
+                        <span className="text">Edit data</span>
                     </Link>
 
                     <Link to={`/edit-user-pass/${id}`} className='option'>
-                        <span className="text">Editar contraseña</span>
+                        <span className="text">Edit PASSWORD</span>
                     </Link>
                 </div>
             </div>

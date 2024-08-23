@@ -39,13 +39,13 @@ const SelectProvider = () => {
     return (
         <div className="selectProvider-container">
 
-            <div className="text">Nueva Compra</div>
+            <div className="text">New Purchase</div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <div className="grid-form">
                         <SearchSelect
-                            label="Selecciona el proveedor"
-                            placeholder="Buscar proveedor..."
+                            label="Select the provider"
+                            placeholder="search provider..."
                             onSelected={handleProviderSelect}
                             apiUrl={`${API}/api/v1/provider`}
                             optionsAttr="providers"
@@ -55,7 +55,7 @@ const SelectProvider = () => {
 
                     <div className="button-container">
                         <button className="btn" type="submit" disabled={submitDisabled}>
-                            <span>Continuar</span>
+                            <span>Continue</span>
                             <FontAwesomeIcon icon={faArrowRight} className="details-icon" />
                         </button>
                     </div>

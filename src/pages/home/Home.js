@@ -85,7 +85,7 @@ const Home = () => {
                             <div className="panel-heading">
                                 <h3 className="panel-title">
                                     <FontAwesomeIcon icon={faTruckFast} className="panel-title-icon" />
-                                    <span>Suppliers</span>
+                                    <span>PROVIDERS</span>
                                 </h3>
                             </div>
                             <div className="panel-body">
@@ -142,7 +142,7 @@ const Home = () => {
                                     <h4>Last month</h4>
                                     <p>
                                         {dataSummary && dataSummary.purchases && dataSummary.purchases.totalPurchasesInLastMonth > 0
-                                            ? (dataSummary.purchases.purchaseMoneyInLastMonth.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + " in " + dataSummary.purchases.totalPurchasesInLastMonth + " purchase" + (dataSummary.purchases.totalPurchasesInLastMonth > 1 ? "s" : ""))
+                                            ? (dataSummary.purchases.purchaseMoneyInLastMonth.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' }) + " in " + dataSummary.purchases.totalPurchasesInLastMonth + " purchase" + (dataSummary.purchases.totalPurchasesInLastMonth > 1 ? "s" : ""))
                                             : "No purchases in the last month"
                                         }
                                     </p>
@@ -151,7 +151,7 @@ const Home = () => {
                                     <h4>Last week</h4>
                                     <p>
                                         {dataSummary && dataSummary.purchases && dataSummary.purchases.totalPurchasesInLastWeek > 0
-                                            ? (dataSummary.purchases.purchaseMoneyInLastWeek.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + " in " + dataSummary.purchases.totalPurchasesInLastWeek + " purchase" + (dataSummary.purchases.totalPurchasesInLastWeek > 1 ? "s" : ""))
+                                            ? (dataSummary.purchases.purchaseMoneyInLastWeek.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' }) + " in " + dataSummary.purchases.totalPurchasesInLastWeek + " purchase" + (dataSummary.purchases.totalPurchasesInLastWeek > 1 ? "s" : ""))
                                             : "No purchases in the last week"
                                         }
                                     </p>
@@ -160,7 +160,7 @@ const Home = () => {
                                     <h4>Last year</h4>
                                     <p>
                                         {dataSummary && dataSummary.purchases && dataSummary.purchases.totalPurchasesInLastYear > 0
-                                            ? (dataSummary.purchases.purchaseMoneyInLastYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + " in " + dataSummary.purchases.totalPurchasesInLastYear + " purchase" + (dataSummary.purchases.totalPurchasesInLastYear > 1 ? "s" : ""))
+                                            ? (dataSummary.purchases.purchaseMoneyInLastYear.toLocaleString('en-US', { style: 'currency', currency: 'NPR' }) + " in " + dataSummary.purchases.totalPurchasesInLastYear + " purchase" + (dataSummary.purchases.totalPurchasesInLastYear > 1 ? "s" : ""))
                                             : "No purchases in the last year"
                                         }
                                     </p>
@@ -188,7 +188,7 @@ const Home = () => {
                                     <h4>Last month</h4>
                                     <p>
                                         {dataSummary && dataSummary.sales && dataSummary.sales.totalSalesInLastMonth > 0
-                                            ? (dataSummary.sales.saleMoneyInLastMonth.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + " in " + dataSummary.sales.totalSalesInLastMonth + " sale" + (dataSummary.sales.totalSalesInLastMonth > 1 ? "s" : ""))
+                                            ? (dataSummary.sales.saleMoneyInLastMonth.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' }) + " in " + dataSummary.sales.totalSalesInLastMonth + " sale" + (dataSummary.sales.totalSalesInLastMonth > 1 ? "s" : ""))
                                             : "No sales in the last month"
                                         }
                                     </p>
@@ -197,7 +197,7 @@ const Home = () => {
                                     <h4>Last week</h4>
                                     <p>
                                         {dataSummary && dataSummary.sales && dataSummary.sales.totalSalesInLastWeek > 0
-                                            ? (dataSummary.sales.saleMoneyInLastWeek.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + " in " + dataSummary.sales.totalSalesInLastWeek + " sale" + (dataSummary.sales.totalSalesInLastWeek > 1 ? "s" : ""))
+                                            ? (dataSummary.sales.saleMoneyInLastWeek.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' }) + " in " + dataSummary.sales.totalSalesInLastWeek + " sale" + (dataSummary.sales.totalSalesInLastWeek > 1 ? "s" : ""))
                                             : "No sales in the last week"
                                         }
                                     </p>
@@ -206,7 +206,7 @@ const Home = () => {
                                     <h4>Last year</h4>
                                     <p>
                                         {dataSummary && dataSummary.sales && dataSummary.sales.totalSalesInLastYear > 0
-                                            ? (dataSummary.sales.saleMoneyInLastYear.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) + " in " + dataSummary.sales.totalSalesInLastYear + " sale" + (dataSummary.sales.totalSalesInLastYear > 1 ? "s" : ""))
+                                            ? (dataSummary.sales.saleMoneyInLastYear.toLocaleString('en-US', { style: 'currency', currency: 'NPR' }) + " in " + dataSummary.sales.totalSalesInLastYear + " sale" + (dataSummary.sales.totalSalesInLastYear > 1 ? "s" : ""))
                                             : "No sales in the last year"
                                         }
                                     </p>

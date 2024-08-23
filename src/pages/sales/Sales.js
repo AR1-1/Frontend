@@ -63,13 +63,13 @@ const Sales = () => {
     return (
         <div className="sales-container">
 
-            <div className="text">Ventas</div>
+            <div className="text">Sales</div>
 
             <div className="options">
                 <SearchBox onSearch={handleSearch} disabled={isLoading} />
                 <Link to="/new-sale" className="add-box">
                     <FontAwesomeIcon icon={faPlus} className="icon" />
-                    <span className="text">Nueva venta</span>
+                    <span className="text">New sale</span>
                 </Link>
             </div>
 
@@ -79,11 +79,11 @@ const Sales = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>FECHA</th>
+                                <th>DATE</th>
                                 <th>TOTAL</th>
-                                <th>CLIENTE</th>
-                                <th>USUARIO</th>
-                                <th>DETALLES</th>
+                                <th>CUSTOMER</th>
+                                <th>USER</th>
+                                <th>DETAILES</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,7 +92,7 @@ const Sales = () => {
                                     <tr key={sale.saleId}>
                                         <td>{sale.saleId}</td>
                                         <td>{formatDate(sale.createdAt)}</td>
-                                        <td>{sale.totalValue.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+                                        <td>{sale.totalValue.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
                                         <td>{sale.customer.name}</td>
                                         <td>{sale.user.name}</td>
                                         <td>
@@ -104,7 +104,7 @@ const Sales = () => {
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="6">No hay resultados</td>
+                                    <td colSpan="6">No result</td>
                                 </tr>
                             )}
                         </tbody>

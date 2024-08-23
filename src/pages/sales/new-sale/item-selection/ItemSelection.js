@@ -92,7 +92,7 @@ const ItemSelection = ({ onSelectionChange }) => {
     return (
         <div className="item-selection-container">
             <div className="top-articles">
-                <label>Seleccionar artículos</label>
+                <label>Select items</label>
                 <div className="options">
                     <SearchBox onSearch={handleSearch} disabled={isLoading} />
                 </div>
@@ -104,14 +104,14 @@ const ItemSelection = ({ onSelectionChange }) => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>NOMBRE</th>
-                                <th>MARCA</th>
-                                <th>CATEGORIA</th>
+                                <th>NAME</th>
+                                <th>BRAND</th>
+                                <th>CATEGORIES</th>
                                 <th>STOCK</th>
-                                <th>PRECIO-COMPRA</th>
-                                <th>PRECIO-VENTA</th>
-                                <th>PROVEEDOR</th>
-                                <th>SELECCIONAR</th>
+                                <th>PURCHASE PRICE</th>
+                                <th>SALE PRICE</th>
+                                <th>PROVIDORES</th>
+                                <th>SELECT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -123,8 +123,8 @@ const ItemSelection = ({ onSelectionChange }) => {
                                         <td>{article.brand}</td>
                                         <td>{article.category.name}</td>
                                         <td>{article.stock}</td>
-                                        <td>{article.purchasePrice.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
-                                        <td>{article.salePrice.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+                                        <td>{article.purchasePrice.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
+                                        <td>{article.salePrice.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
                                         <td>{article.provider.name}</td>
                                         <td>
                                             <label className="checkbox-container">
@@ -141,7 +141,7 @@ const ItemSelection = ({ onSelectionChange }) => {
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="9">No hay resultados</td>
+                                    <td colSpan="9">No result</td>
                                 </tr>
                             )}
                         </tbody>
@@ -156,20 +156,20 @@ const ItemSelection = ({ onSelectionChange }) => {
                 <div className="saleSummary">
                     <div className="top-sale">
                         <hr></hr>
-                        <label>Resumen de la venta</label>
+                        <label>SALES SUMMARY</label>
                     </div>
                     <div className="table-container">
                         <table className="table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>NOMBRE</th>
-                                    <th>MARCA</th>
+                                    <th>NAME</th>
+                                    <th>BRAND</th>
                                     <th>STOCK</th>
-                                    <th>CANTIDAD</th>
-                                    <th>PRECIO</th>
+                                    <th>QUANTITY</th>
+                                    <th>PRICE</th>
                                     <th>SUBTOTAL</th>
-                                    <th>REMOVER</th>
+                                    <th>REMOVE</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -190,8 +190,8 @@ const ItemSelection = ({ onSelectionChange }) => {
                                                 required
                                             />
                                         </td>
-                                        <td>{article.salePrice.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
-                                        <td>{(article.salePrice * article.quantity).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+                                        <td>{article.salePrice.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
+                                        <td>{(article.salePrice * article.quantity).toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
                                         <td>
                                             <FontAwesomeIcon icon={faTrashCan} className="trash-icon" onClick={() => handleCheckboxChange(article, false)} />
                                         </td>
@@ -200,7 +200,7 @@ const ItemSelection = ({ onSelectionChange }) => {
                                 <tr>
                                     <td colSpan="5"></td>
                                     <td className="total">TOTAL</td>
-                                    <td className="total">{calculateTotal().toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+                                    <td className="total">{calculateTotal().toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
                                     <td></td>
                                 </tr>
                             </tbody>

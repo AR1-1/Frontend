@@ -54,7 +54,7 @@ const EditUserPassword = () => {
 
         // Validate password with confirmation
         if (formData.password !== formData.passwordConfirmation) {
-            alert('Las contraseñas no coinciden');
+            alert('The passwords do not match');
             setFormData({
                 password: '',
                 passwordConfirmation: ''
@@ -73,16 +73,16 @@ const EditUserPassword = () => {
             });
 
             if (response.ok) {
-                alert('Contraseña actualizada exitosamente');
+                alert('Password updated successfully');
                 navigate(`/edit-user/${id}`);
                 return;
             }
-            alert("La contraseña no pudo ser actualizada");
+            alert(" Password could not be updated");
             navigate(`/edit-user/${id}`);
             return;
         } catch (error) {
             console.log(error);
-            alert("Error al actualizar la contraseña");
+            alert("Error updating password");
             navigate(`/edit-user/${id}`);
             return;
         }
@@ -91,12 +91,12 @@ const EditUserPassword = () => {
     return (
         <div className="editUserPassword-container">
 
-            <div className="text">Editar Contraseña</div>
+            <div className="text">Edit Password</div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <div className="grid-form">
                         <div className="form-item">
-                            <label htmlFor="password">Contraseña</label>
+                            <label htmlFor="password">Password</label>
                             <input
                                 className="input"
                                 type="password"
@@ -108,7 +108,7 @@ const EditUserPassword = () => {
                             />
                         </div>
                         <div className="form-item">
-                            <label htmlFor="passwordConfirmation">Confirmar contraseña</label>
+                            <label htmlFor="passwordConfirmation">Confirm Password</label>
                             <input
                                 className="input"
                                 type="password"
@@ -123,7 +123,7 @@ const EditUserPassword = () => {
 
                     <div className="button-container">
                         <button className="btn" type="submit" disabled={submitDisabled}>
-                            Actualizar
+                           Submit
                         </button>
                     </div>
                 </form>

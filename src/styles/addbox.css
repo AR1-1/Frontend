@@ -44,7 +44,7 @@
 
 .add-box::after {
     content: "";
-    background-color: #ee7355;
+    background-color: #493695;
     position: absolute;
     z-index: -1;
     padding: 16px 20px;

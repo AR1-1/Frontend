@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus,faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
 import './items.css';
 import '../../styles/addbox.css';
 import SearchBox from '../../components/search-box/SearchBox';
@@ -62,13 +62,13 @@ const Items = () => {
     return (
         <div className="items-container">
 
-            <div className="text">Articles</div>
+            <div className="text">ITEMS</div>
 
             <div className="options">
                 <SearchBox onSearch={handleSearch} disabled={isLoading} />
                 <Link to="/new-item" className="add-box">
                     <FontAwesomeIcon icon={faPlus} className="icon" />
-                    <span className="text">New Article</span>
+                    <span className="text">New ITEMS</span>
                 </Link>
             </div>
 
@@ -87,6 +87,8 @@ const Items = () => {
                                 <th>WEIGHT</th>
                                 <th>PROVIDER</th>
                                 <th>EDIT</th>
+                                <th>DELETE</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -98,13 +100,19 @@ const Items = () => {
                                         <td>{article.brand}</td>
                                         <td>{article.category.name}</td>
                                         <td>{article.stock}</td>
-                                        <td>{article.purchasePrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
-                                        <td>{article.salePrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
+                                        <td>{article.purchasePrice.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' })}</td>
+                                        <td>{article.salePrice.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' })}</td>
                                         <td>{article.weight}</td>
                                         <td>{article.provider.name}</td>
                                         <td>
                                             <Link to={`/edit-item/${article.articleId}`}>
                                                 <FontAwesomeIcon icon={faPen} className="pen-icon" />
+                                            </Link>
+                                        </td>
+                                        <td>
+                                            <Link to={`/edit-item/${article.articleId}`}>
+                                                <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
+                                                {/* <FontAwesomeIcon icon="fa-solid fa-trash-can" /> */}
                                             </Link>
                                         </td>
                                     </tr>

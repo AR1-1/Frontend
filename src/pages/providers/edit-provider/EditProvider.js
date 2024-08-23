@@ -74,14 +74,14 @@ const EditProvider = () => {
             });
 
             if (response.ok) {
-                alert('Proveedor actualizado exitosamente');
+                alert('Provider successfully updated');
                 navigate('/providers');
                 return;
             }
-            alert("El proveedor no pudo ser actualizado, verifique los datos");
+            alert("The provider could not be updated, check the data");
         } catch (error) {
             console.log(error);
-            alert("Error al actualizar el proveedor");
+            alert("Failed to update provider");
         }
         setSubmitDisabled(false);
     }
@@ -89,13 +89,13 @@ const EditProvider = () => {
     return (
         <div className="editProvider-container">
 
-            <div className="text">Editar Proveedor</div>
+            <div className="text">Edit Providers</div>
             {!isLoading ? (
                 <div className="form-container">
                     <form onSubmit={handleSubmit}>
                         <div className="grid-form">
                             <div className="form-item">
-                                <label htmlFor="phoneNumber">Teléfono</label>
+                                <label htmlFor="phoneNumber">PhoneNumber</label>
                                 <input
                                     className="input"
                                     type="text"
@@ -107,7 +107,7 @@ const EditProvider = () => {
                                 />
                             </div>
                             <div className="form-item">
-                                <label htmlFor="email">Correo</label>
+                                <label htmlFor="email">Email</label>
                                 <input
                                     className="input"
                                     type="email"
@@ -121,7 +121,7 @@ const EditProvider = () => {
                         </div>
                         <div className="button-container">
                             <button className="btn" type="submit" disabled={submitDisabled}>
-                                Actualizar
+                              Submit
                             </button>
                         </div>
                     </form>

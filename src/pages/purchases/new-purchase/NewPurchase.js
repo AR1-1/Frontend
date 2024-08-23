@@ -65,7 +65,7 @@ const NewPurchase = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (formData.articles.length === 0) {
-            alert('Debe seleccionar al menos un artículo');
+            alert('You must select at least one item');
             return;
         }
         setSubmitDisabled(true);
@@ -79,14 +79,14 @@ const NewPurchase = () => {
             });
 
             if (response.ok) {
-                alert('Compra registrada exitosamente');
+                alert('Purchase successfully registered');
                 navigate('/purchases');
                 return;
             }
-            alert("La compra no pudo ser registrada, verifique los datos");
+            alert(" purchase could not be registered, check the data");
         } catch (error) {
             console.log(error);
-            alert("Error al registrar la compra");
+            alert("Error registering purchase");
         }
         setSubmitDisabled(false);
     }
@@ -94,7 +94,7 @@ const NewPurchase = () => {
     return (
         <div className="newPurchase-container">
 
-            <div className="text">Nueva Compra</div>
+            <div className="text">New Purchase</div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
 
@@ -103,7 +103,7 @@ const NewPurchase = () => {
                     {formData.articles.length > 0 && (
                         <div className="button-container">
                             <button className="btn" type="submit" disabled={submitDisabled}>
-                                Crear
+                                Create
                             </button>
                         </div>
                     )}

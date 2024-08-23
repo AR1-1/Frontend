@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import './customers.css';
 import '../../styles/addbox.css';
 import SearchBox from '../../components/search-box/SearchBox';
@@ -86,6 +86,7 @@ const Customers = () => {
                 <th>State</th>
                 <th>City</th>
                 <th>Edit</th>
+                <th>DELETE</th>
               </tr>
             </thead>
             <tbody>
@@ -103,6 +104,11 @@ const Customers = () => {
                     <td>
                       <Link to={`/edit-customer/${customer.customerId}`}>
                         <FontAwesomeIcon icon={faPen} className="pen-icon" />
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/edit-customer/${customer.customerId}`}>
+                        <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
                       </Link>
                     </td>
                   </tr>

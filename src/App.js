@@ -16,10 +16,10 @@ import Providers from './pages/providers/Providers';
 import NewProvider from './pages/providers/new-provider/NewProvider';
 import EditProvider from './pages/providers/edit-provider/EditProvider';
 
-import s from './pages/s/s';
-import SelectProvider from './pages/s/new-/SelectProvider';
-import New from './pages/s/new-/New';
-import Detail from './pages/s/detail-/Detail';
+import Purchases from './pages/purchases/Purchases';
+import SelectProvider from './pages/purchases/new-purchase/SelectProvider';
+import NewPurchase from './pages/purchases/new-purchase/NewPurchase';
+import DetailPurchase from './pages/purchases/detail-purchase/DetailPurchase';
 
 import Customers from './pages/customers/Customers';
 import NewCustomer from './pages/customers/new-customer/NewCustomer';
@@ -40,6 +40,8 @@ import Navbar from './components/navbar/Navbar';
 import ForgotLogin from './pages/login/forgot-login/ForgotLogin';
 import AccessValidation from './pages/login/forgot-login/AccessValidation';
 
+import notification from './pages/notification';
+
 import NotFound from './pages/not-found/NotFound';
 
 import userVerification from './utils/userVerification';
@@ -52,10 +54,8 @@ function App() {
                     <Route path="/" element={<Navigate to="/login" replace />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/forgot-login" element={<ForgotLogin />} />
+                  
                     <Route path="/access-validation" element={<AccessValidation />} />
-                    <Route path="/new-user" element={
-                        <NewUser />
-                    } />
                     <Route path="/*" element={
                         <MainLayout />
                     } />
@@ -116,17 +116,17 @@ const MainLayout = () => {
                         <EditProvider />
                     } />
 
-                    <Route path="/s" element={
-                        <s />
+                    <Route path="/purchases" element={
+                        <Purchases />
                     } />
-                    <Route path="/new-" element={
+                    <Route path="/new-purchase" element={
                         <SelectProvider />
                     } />
-                    <Route path="/new-/:providerId" element={
-                        <New />
+                    <Route path="/new-purchase/:providerId" element={
+                        <NewPurchase />
                     } />
-                    <Route path="/detail-/:id" element={
-                        <Detail />
+                    <Route path="/detail-purchase/:id" element={
+                        <DetailPurchase />
                     } />
 
                     <Route path="/customers" element={
@@ -152,7 +152,9 @@ const MainLayout = () => {
                     <Route path="/users" element={
                         <Users />
                     } />
-                  
+                    <Route path="/new-user" element={
+                        <NewUser />
+                    } />
                     <Route path="/edit-user/:id" element={
                         <EditUser />
                     } />
@@ -162,7 +164,11 @@ const MainLayout = () => {
                     <Route path="/edit-user-pass/:id" element={
                         <EditUserPassword />
                     } />
+                    <Route path="/notification" element={
+                        <notification/>
+                    } />
                     <Route path="*" element={<NotFound />} />
+                    
                 </Routes>
             </div>
         </>

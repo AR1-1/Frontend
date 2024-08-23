@@ -44,26 +44,26 @@ const DetailPurchase = () => {
     return (
         <div className="detailPurchase-container">
 
-            <div className="text">Detalle de compra{" #" + id}</div>
+            <div className="text">Purchase details{" #" + id}</div>
 
             {!isLoading ? (
                 <>
                     <div className="top-purchase">
-                        <h2>Proveedor</h2>
+                        <h2>Providers</h2>
                         <p>{purchase ? purchase.provider.name : ""}<br />{purchase ? purchase.provider.email : ""}</p>
-                        <h2>Usuario</h2>
+                        <h2>Username</h2>
                         <p>{purchase ? purchase.user.name : ""}<br />{purchase ? "@" + purchase.user.username : ""}</p>
-                        <h2>Venta</h2>
+                        <h2>Sale</h2>
                     </div>
                     <div className="table-container">
                         <table className="table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>NOMBRE</th>
-                                    <th>MARCA</th>
-                                    <th>CANTIDAD</th>
-                                    <th>PRECIO</th>
+                                    <th>NAME</th>
+                                    <th>BRAND</th>
+                                    <th>QUANTITY</th>
+                                    <th>PRICE</th>
                                     <th>SUBTOTAL</th>
                                 </tr>
                             </thead>
@@ -74,15 +74,15 @@ const DetailPurchase = () => {
                                         <td>{articleData.article.name}</td>
                                         <td>{articleData.article.brand}</td>
                                         <td>{articleData.articleQuantity}</td>
-                                        <td>{(articleData.price / articleData.articleQuantity).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
-                                        <td>{articleData.price.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+                                        <td>{(articleData.price / articleData.articleQuantity).toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
+                                        <td>{articleData.price.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
                                     </tr>
                                 ))}
                                 {purchase &&
                                     <tr>
                                         <td colSpan="4"></td>
                                         <td className="total">TOTAL</td>
-                                        <td className="total">{purchase.totalValue.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+                                        <td className="total">{purchase.totalValue.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
                                     </tr>}
                             </tbody>
                         </table>

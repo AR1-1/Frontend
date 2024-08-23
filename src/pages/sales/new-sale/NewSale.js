@@ -53,7 +53,7 @@ const NewSale = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (formData.articles.length === 0) {
-            alert('Debe seleccionar al menos un artículo');
+            alert(' You must select at least one item');
             return;
         }
         setSubmitDisabled(true);
@@ -67,14 +67,14 @@ const NewSale = () => {
             });
 
             if (response.ok) {
-                alert('Venta registrada exitosamente');
+                alert('Sale successfully registered');
                 navigate('/sales');
                 return;
             }
-            alert("La venta no pudo ser registrada, verifique los datos");
+            alert("The sale could not be registered, verify the data");
         } catch (error) {
             console.log(error);
-            alert("Error al registrar la venta");
+            alert("Error when registering the sale");
         }
         setSubmitDisabled(false);
     }
@@ -82,13 +82,13 @@ const NewSale = () => {
     return (
         <div className="newSale-container">
 
-            <div className="text">Nueva Venta</div>
+            <div className="text">New Sale</div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <div className="grid-form">
                         <SearchSelect
-                            label="Cliente"
-                            placeholder="Buscar cliente..."
+                            label="Customer"
+                            placeholder="Search for customer..."
                             onSelected={handleCustomerSelect}
                             apiUrl={`${API}/api/v1/customer`}
                             optionsAttr="customers"
@@ -101,7 +101,7 @@ const NewSale = () => {
                     {formData.articles.length > 0 && (
                         <div className="button-container">
                             <button className="btn" type="submit" disabled={submitDisabled}>
-                                Crear
+                                Create
                             </button>
                         </div>
                     )}

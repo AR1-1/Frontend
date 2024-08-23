@@ -87,7 +87,7 @@ header .image-text .profession {
 }
 
 .sidebar-container header .image img {
-    width: 40px;
+    width: 30px;
     border-radius: 6px;
 }
 
@@ -172,6 +172,6 @@ header .image-text .profession {
 }
 
 .sidebar-container li.selected:not(:hover) a {
-    background-color: #234d77; /* #2B3035 */
+    background-color: #6e51df; /* #2B3035 */
     z-index: -1;
 }

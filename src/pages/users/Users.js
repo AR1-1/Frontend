@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import './users.css';
 import '../../styles/addbox.css';
 import SearchBox from '../../components/search-box/SearchBox';
@@ -89,6 +89,7 @@ const Users = () => {
                                 <th>EMAIL</th>
                                 <th>ADMIN</th>
                                 <th>EDIT</th>
+                                <th>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -104,6 +105,11 @@ const Users = () => {
                                         <td>
                                             <Link to={`/edit-user/${user.userId}`}>
                                                 <FontAwesomeIcon icon={faPen} className="pen-icon" />
+                                            </Link>
+                                        </td>
+                                        <td>
+                                            <Link to={`/edit-user/${user.userId}`}>
+                                                <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
                                             </Link>
                                         </td>
                                     </tr>

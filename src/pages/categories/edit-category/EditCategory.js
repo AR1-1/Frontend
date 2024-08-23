@@ -88,7 +88,7 @@ const EditCategory = () => {
     return (
         <div className="editCategory-container">
 
-            <div className="text">Edit Category</div>
+         <div className="text">Edit Category</div>
             {!isLoading ? (
                 <div className='form-container'>
                     <form onSubmit={handleSubmit}>
@@ -104,6 +104,7 @@ const EditCategory = () => {
                                     onChange={handleChange}
                                     required
                                 />
+                            
                             </div>
                         </div>
 
