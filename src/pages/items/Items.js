@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus,faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
 import './items.css';
 import '../../styles/addbox.css';
 import SearchBox from '../../components/search-box/SearchBox';
@@ -15,55 +15,54 @@ const Items = () => {
     const [query, setQuery] = useState('');
     const [page, setPage] = useState(1);
     const pageSize = 5;
-
     const [isLoading, setIsLoading] = useState(true);
-
     const [paginator, setPaginator] = useState({});
-
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Permission validation
         if (!userVerification().isAuthenticated) {
             localStorage.clear();
             navigate('/login');
             return;
         }
 
-        // Query paginated data
-        const data = new FormData();
-        if (query.length > 0) {
-            data.append('searchCriteria', query);
-        }
-        data.append('page', page);
-        data.append('pageSize', pageSize);
+        const params = new URLSearchParams({
+            page,
+            pageSize,
+            ...(query && { searchCriteria: query }),
+        });
 
-        const url = new URL(`${API}/api/v1/article`);
-        url.search = new URLSearchParams(data).toString();
+        const url = `${API}/api/v1/article?${params.toString()}`;
+
         (async () => {
-            await fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    setPaginator(data);
-                    setIsLoading(false);
-                })
-                .catch(error => console.log(error))
+            try {
+                setIsLoading(true);
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                setPaginator(data);
+            } catch (error) {
+                console.error('Error fetching articles:', error);
+            } finally {
+                setIsLoading(false);
+            }
         })();
     }, [navigate, query, page]);
 
     const handleSearch = (query) => {
         setQuery(query);
-    }
+        setPage(1); // Reset to first page on search
+    };
 
-    const handlePage = (page) => {
-        setPage(page);
-    }
+    const handlePage = (newPage) => {
+        setPage(newPage);
+    };
 
     return (
         <div className="items-container">
-
             <div className="text">ITEMS</div>
-
             <div className="options">
                 <SearchBox onSearch={handleSearch} disabled={isLoading} />
                 <Link to="/new-item" className="add-box">
@@ -76,19 +75,18 @@ const Items = () => {
                 <div className="table-container">
                     <table className="table">
                         <thead>
-                            <tr>
+                            <tr style={{ fontWeight: 'bold', color: 'black' }}>
                                 <th>ID</th>
                                 <th>NAME</th>
                                 <th>BRAND</th>
                                 <th>CATEGORY</th>
                                 <th>STOCK</th>
-                                <th>PURCHASE-PRICE</th>
-                                <th>SALE-PRICE</th>
+                                <th>PURCHASE PRICE</th>
+                                <th>SALE PRICE</th>
                                 <th>WEIGHT</th>
                                 <th>PROVIDER</th>
                                 <th>EDIT</th>
                                 <th>DELETE</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -98,39 +96,36 @@ const Items = () => {
                                         <td>{article.articleId}</td>
                                         <td>{article.name}</td>
                                         <td>{article.brand}</td>
-                                        <td>{article.category.name}</td>
+                                        <td>{article.category?.name || 'N/A'}</td>
                                         <td>{article.stock}</td>
-                                        <td>{article.purchasePrice.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' })}</td>
-                                        <td>{article.salePrice.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' })}</td>
+                                        <td>{article.purchasePrice?.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' }) || 'N/A'}</td>
+                                        <td>{article.salePrice?.toLocaleString('en-NP', { style: 'currency', currency: 'NPR' }) || 'N/A'}</td>
                                         <td>{article.weight}</td>
-                                        <td>{article.provider.name}</td>
+                                        <td>{article.provider?.name || 'N/A'}</td>
                                         <td>
                                             <Link to={`/edit-item/${article.articleId}`}>
                                                 <FontAwesomeIcon icon={faPen} className="pen-icon" />
                                             </Link>
                                         </td>
                                         <td>
-                                            <Link to={`/edit-item/${article.articleId}`}>
+                                            <Link to={`/delete-item/${article.articleId}`}>
                                                 <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
-                                                {/* <FontAwesomeIcon icon="fa-solid fa-trash-can" /> */}
                                             </Link>
                                         </td>
                                     </tr>
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="10">No results</td>
+                                    <td colSpan="11">No results</td>
                                 </tr>
                             )}
                         </tbody>
                     </table>
-
                     <Pagination paginator={paginator} onChangePage={handlePage} />
                 </div>
             ) : (
                 <Loading />
             )}
-
         </div>
     );
 }

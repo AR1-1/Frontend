@@ -17,15 +17,13 @@ const Categories = () => {
     const pageSize = 5;
 
     const [isLoading, setIsLoading] = useState(true);
-
     const [paginator, setPaginator] = useState({});
 
     const navigate = useNavigate();
 
-    //only seen by the user which is loggined
+    // Only seen by the user who is logged in
     const user = JSON.parse(localStorage.getItem('user'));
     const userId = user?.id;  // Get the logged-in user's ID
-
 
     useEffect(() => {
         // Permission validation
@@ -42,10 +40,7 @@ const Categories = () => {
         }
         data.append('page', page);
         data.append('pageSize', pageSize);
-
-        // Include the userId in the request
         data.append('userId', userId); 
-
 
         const url = new URL(`${API}/api/v1/category`);
         url.search = new URLSearchParams(data).toString();
@@ -56,7 +51,7 @@ const Categories = () => {
                     setPaginator(data);
                     setIsLoading(false);
                 })
-                .catch(error => console.log(error))
+                .catch(error => console.log(error));
         })();
     }, [navigate, query, page]);
 
@@ -68,11 +63,33 @@ const Categories = () => {
         setPage(page);
     }
 
+    const handleDelete = async (id) => {
+        if (window.confirm('Are you sure you want to delete this category?')) {
+            try {
+                const response = await fetch(`${API}/api/v1/category/${id}`, {
+                    method: 'DELETE',
+                });
+
+                if (response.ok) {
+                    alert('Category deleted successfully');
+                    // Refresh the data
+                    setPaginator(prevPaginator => ({
+                        ...prevPaginator,
+                        categories: prevPaginator.categories.filter(category => category.id !== id),
+                    }));
+                } else {
+                    alert('Failed to delete the category');
+                }
+            } catch (error) {
+                console.log(error);
+                alert('Error deleting the category');
+            }
+        }
+    }
+
     return (
         <div className="categories-container">
-
             <div className="text">Categories</div>
-            
             <div className="options">
                 <SearchBox onSearch={handleSearch} disabled={isLoading} />
                 <Link to="/new-category" className="add-box">
@@ -80,17 +97,15 @@ const Categories = () => {
                     <span className="text">New Category</span>
                 </Link>
             </div>
-            
-
             {!isLoading ? (
                 <div className="table-container">
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>NAME</th>
-                                <th>EDIT</th>
-                                <th>DELETE</th>
+                                <th style={{ fontWeight: 'bold', color: 'black' }}>ID</th>
+                                <th style={{ fontWeight: 'bold', color: 'black' }}>NAME</th>
+                                <th style={{ fontWeight: 'bold', color: 'black' }}>EDIT</th>
+                                <th style={{ fontWeight: 'bold', color: 'black' }}>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -105,26 +120,24 @@ const Categories = () => {
                                             </Link>
                                         </td>
                                         <td>
-                                            <Link to={`/edit-category/${category.categoryId}`}>
+                                            <button onClick={() => handleDelete(category.categoryId)} className="delete-button">
                                                 <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
-                                            </Link>
+                                            </button>
                                         </td>
                                     </tr>
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="3">No results found</td>
+                                    <td colSpan="4">No results found</td>
                                 </tr>
                             )}
                         </tbody>
                     </table>
-
                     <Pagination paginator={paginator} onChangePage={handlePage} />
                 </div>
             ) : (
                 <Loading />
             )}
-
         </div>
     );
 }

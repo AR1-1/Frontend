@@ -76,7 +76,7 @@ const Customers = () => {
         <div className="table-container">
           <table className="table">
             <thead>
-              <tr>
+              <tr style={{ fontWeight: 'bold', color: 'black' }}>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Phone</th>

@@ -130,8 +130,8 @@ const ItemSelection = ({ onSelectionChange, provider }) => {
                                         <td>{article.brand}</td>
                                         <td>{article.category.name}</td>
                                         <td>{article.stock}</td>
-                                        <td>{article.purchasePrice.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
-                                        <td>{article.salePrice.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+                                        <td>{article.purchasePrice.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
+                                        <td>{article.salePrice.toLocaleString('es-NP', { style: 'currency', currency: 'NPR' })}</td>
                                         <td>{article.provider.name}</td>
                                         <td>
                                             <label className="checkbox-container">

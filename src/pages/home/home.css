@@ -1,201 +1,48 @@
+/* Center the home container */
 .home-container {
-    width: 100%;
-    height: 100%;
+    padding: 20px;
+    max-width: 900px; /* Set a max width for the dashboard */
+    margin: 0 auto; /* Centers the container horizontally */
+    text-align: center; /* Centers the text inside the container */
 }
 
-/* .panel:nth-child(4) {
-    display: block;
-} */
-
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 20px;
-    margin-top: 20px;
-    width: 90%;
-    height: 80%;
-    margin: auto;
+/* Table styling */
+table {
+    width: 100%; /* Makes the table take up full width of the container */
+    border-collapse: collapse;
+    margin: 20px 0;
 }
 
-.dashboard .row-1 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center; /* Center-aligns the text inside table cells */
+    font-size: 16px; /* Sets a standard font size */
 }
 
-.dashboard .row-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold; /* Boldens the header text */
+    font-size: 18px; /* Increases the font size for headers */
 }
 
-/* ===== PANEL =====*/
-
-.dashboard .panel {
-    background-color: white;
-    box-shadow: 5px 5px 10px 1px rgba(41, 39, 40, 0.1);
-    border: 1px solid rgba(41, 39, 40, 0.1);
-    border-radius: 20px;
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternating row color for better readability */
 }
 
-
-/*==== PANEL HEADING ====*/
-
-.dashboard .panel .panel-heading {
-    padding: 11px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-
-    color: #333333;
-    background-color: #f1f2f2;
-    border-color: rgba(41, 39, 40, 0.1);
-    height: 23%;
+table tbody tr:hover {
+    background-color: #f1f1f1; /* Row highlight on hover */
 }
 
-.dashboard .panel .panel-heading .panel-title {
-    display: flex;
-    align-items: center;
-    height: 100%;
+/* Additional styling for bold text and appearance */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.dashboard .panel .panel-heading .panel-title-icon {
-    background: white;
-    border-radius: 100%;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+h2 {
     font-size: 20px;
-    height: 20px;
-    margin-left: 10px;
-    margin-right: 13px;
-    padding: 10px;
-    text-align: center;
-}
-
-.dashboard .panel .panel-heading .panel-title span {
-    font-weight: 500;
-}
-
-
-/*==== PANEL BODY ====*/
-
-.dashboard .panel .panel-body {
-    height: 50%;
-    padding: 0 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.dashboard .item-4 .panel-body,
-.dashboard .item-5 .panel-body {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* grid-gap: 20px; */
-}
-
-.dashboard .panel .panel-body h4 {
-    font-weight: 500;
-}
-
-
-/*==== PANEL FOOTER ====*/
-
-.dashboard .panel .panel-footer {
-    padding: 0px 5px;
-    display: flex;
-    justify-content: center;
-    height: 27%;
-    align-items: center;
-}
-
-.dashboard .panel .panel-footer .btn {
-    background-color: var(--primary-color);
-    color: white;
-    /* border: 3px solid var(--primary-color); */
-    padding: 3px;
-    border-radius: 5px;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-    width: 160px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    text-decoration: none;
-    font-size: 0.90em;
-}
-
-.dashboard .item-1 .panel-footer .btn {
-    width: 135px;
-    margin-right: 1%;
-}
-
-.dashboard .item-1 .panel-footer .btn:last-child {
-    margin-right: 0;
-}
-
-.dashboard .panel .panel-footer .btn:hover {
-    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
-    transition: all 0.5s ease;
-}
-
-.dashboard .panel .panel-footer .btn::after {
-    content: "";
-    background-color: #6248c6;
-    position: absolute;
-    z-index: -1;
-    padding: 16px 20px;
-    display: block;
-    left: -20%;
-    right: -20%;
-    top: 0;
-    bottom: 0;
-    transform: skewX(-45deg) scale(0, 1);
-    transition: all 0.5s ease;
-}
-
-.dashboard .panel .panel-footer .btn:hover::after {
-    transition: all 0.5s ease-out;
-    transform: skewX(-45deg) scale(1, 1);
-}
-
-
-/*==== MEDIA QUERIES ====*/
-
-@media (max-width: 1700px) {
-
-    .dashboard .item-1 .panel-body {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 1100px) {
-
-    .dashboard {
-        display: block;
-    }
-
-    .dashboard .row-1 {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 20px;
-        /* width: 90%; */
-        height: 80%;
-    }
-
-    .dashboard .row-1 .item-3 {
-        grid-column: 1 / 3;
-    }
-
-    .dashboard .row-2 {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 20px;
-        height: 80%;
-        margin-top: 20px;
-    }
+    font-weight: bold;
+    margin-bottom: 15px;
 }

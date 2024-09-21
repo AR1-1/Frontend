@@ -76,7 +76,7 @@ const Providers = () => {
                 <div className="table-container">
                     <table className="table">
                         <thead>
-                            <tr>
+                            <tr style={{ fontWeight: 'bold', color: 'black' }}>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>PhoneNo</th>

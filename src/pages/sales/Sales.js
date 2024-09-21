@@ -42,9 +42,12 @@ const Sales = () => {
         const url = new URL(`${API}/api/v1/sale`);
         url.search = new URLSearchParams(data).toString();
         (async () => {
+            console.log("here ------------");
             await fetch(url)
                 .then(response => response.json())
                 .then(data => {
+                    console.log("chk point 2 ----");
+                    console.log(data);
                     setPaginator(data);
                     setIsLoading(false);
                 })
@@ -77,7 +80,7 @@ const Sales = () => {
                 <div className="table-container">
                     <table className="table">
                         <thead>
-                            <tr>
+                            <tr style={{ fontWeight: 'bold', color: 'black' }}>
                                 <th>ID</th>
                                 <th>DATE</th>
                                 <th>TOTAL</th>
