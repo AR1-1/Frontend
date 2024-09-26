@@ -41,7 +41,7 @@ const EditItem = () => {
 
         // Query data
         (async () => {
-            const url = new URL(`${API}/api/v1/article/${id}`);
+            const url = new URL(`${API}/article/${id}`);
             await fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -101,7 +101,7 @@ const EditItem = () => {
 
         setSubmitDisabled(true);
         try {
-            const response = await fetch(`${API}/api/v1/article/${id}`, {
+            const response = await fetch(`${API}/article/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -214,7 +214,7 @@ const EditItem = () => {
                                 label="Supplier"
                                 placeholder="Search supplier..."
                                 onSelected={handleProviderSelect}
-                                apiUrl={`${API}/api/v1/provider`}
+                                apiUrl={`${API}/provider`}
                                 optionsAttr="providers"
                                 initialSelectedOption={relationalData.provider}
                                 isRequired={true}
@@ -224,7 +224,7 @@ const EditItem = () => {
                                 label="Category"
                                 placeholder="Search category..."
                                 onSelected={handleCategorySelect}
-                                apiUrl={`${API}/api/v1/category`}
+                                apiUrl={`${API}/category`}
                                 optionsAttr="categories"
                                 initialSelectedOption={relationalData.category}
                                 isRequired={true}

@@ -39,7 +39,7 @@ const Sales = () => {
         data.append('page', page);
         data.append('pageSize', pageSize);
 
-        const url = new URL(`${API}/api/v1/sale`);
+        const url = new URL(`${API}/sale`);
         url.search = new URLSearchParams(data).toString();
         (async () => {
             console.log("here ------------");

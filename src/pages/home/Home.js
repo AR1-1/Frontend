@@ -21,7 +21,7 @@ const Home = () => {
 
         (async () => {
             try {
-                const url = new URL(`${API}/api/v1/data/summary`);
+                const url = new URL(`${API}/data/summary`);
                 const response = await fetch(url);
                 const data = await response.json();
                 setDataSummary(data);

@@ -50,7 +50,7 @@ const EditUserData = () => {
 
         // Query data
         (async () => {
-            const url = new URL(`${API}/api/v1/user/${id}`);
+            const url = new URL(`${API}/user/${id}`);
             await fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -90,7 +90,7 @@ const EditUserData = () => {
 
         setSubmitDisabled(true);
         try {
-            const response = await fetch(`${API}/api/v1/user/${id}`, {
+            const response = await fetch(`${API}/user/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

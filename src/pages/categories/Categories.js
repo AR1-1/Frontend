@@ -42,7 +42,7 @@ const Categories = () => {
         data.append('pageSize', pageSize);
         data.append('userId', userId); 
 
-        const url = new URL(`${API}/api/v1/category`);
+        const url = new URL(`${API}/category`);
         url.search = new URLSearchParams(data).toString();
         (async () => {
             await fetch(url)
@@ -63,10 +63,11 @@ const Categories = () => {
         setPage(page);
     }
 
+    //deleting the categories
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this category?')) {
             try {
-                const response = await fetch(`${API}/api/v1/category/${id}`, {
+                const response = await fetch(`${API}/category/${id}`, {
                     method: 'DELETE',
                 });
 

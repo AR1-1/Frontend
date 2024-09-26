@@ -25,7 +25,7 @@ const DetailSale = () => {
         // Get sale by id
         (async () => {
             try {
-                const response = await fetch(`${API}/api/v1/sale/${id}`);
+                const response = await fetch(`${API}/sale/${id}`);
                 if (!response.ok) {
                     navigate('/sales');
                     return;

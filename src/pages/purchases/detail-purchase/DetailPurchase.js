@@ -25,7 +25,7 @@ const DetailPurchase = () => {
         // Get purchase by id
         (async () => {
             try {
-                const response = await fetch(`${API}/api/v1/purchase/${id}`);
+                const response = await fetch(`${API}/purchase/${id}`);
                 if (!response.ok) {
                     navigate('/purchases');
                     return;

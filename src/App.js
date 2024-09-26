@@ -40,11 +40,10 @@ import Navbar from './components/navbar/Navbar';
 import ForgotLogin from './pages/login/forgot-login/ForgotLogin';
 import AccessValidation from './pages/login/forgot-login/AccessValidation';
 
-import notification from './pages/notification';
-
 import NotFound from './pages/not-found/NotFound';
 
 import userVerification from './utils/userVerification';
+import Notifications from './pages/Notification/Notifications';
 
 function App() {
     return (
@@ -166,9 +165,9 @@ const MainLayout = () => {
                     <Route path="/edit-user-pass/:id" element={
                         <EditUserPassword />
                     } />
-                    <Route path="/notification" element={
-                        <notification/>
-                    } />
+                               <Route path="/notification" element={<Notifications/>} />
+
+                   
                     <Route path="*" element={<NotFound />} />
                     
                 </Routes>

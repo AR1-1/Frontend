@@ -39,7 +39,7 @@ const Purchases = () => {
         data.append('page', page);
         data.append('pageSize', pageSize);
 
-        const url = new URL(`${API}/api/v1/purchase`);
+        const url = new URL(`${API}/purchase`);
         url.search = new URLSearchParams(data).toString();
         (async () => {
             await fetch(url)

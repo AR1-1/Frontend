@@ -64,7 +64,7 @@ const EditUserPassword = () => {
 
         setSubmitDisabled(true);
         try {
-            const response = await fetch(`${API}/api/v1/user/${id}/${formData.password}`, {
+            const response = await fetch(`${API}/user/${id}/${formData.password}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

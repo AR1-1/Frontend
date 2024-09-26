@@ -38,7 +38,7 @@ const Customers = () => {
     data.append('page', page);
     data.append('pageSize', pageSize);
 
-    const url = new URL(`${API}/api/v1/customer`);
+    const url = new URL(`${API}/customer`);
     url.search = new URLSearchParams(data).toString();
     (async () => {
       await fetch(url)

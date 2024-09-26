@@ -29,7 +29,7 @@ const EditProvider = () => {
 
         // Query data
         (async () => {
-            const url = new URL(`${API}/api/v1/provider/${id}`);
+            const url = new URL(`${API}/provider/${id}`);
             await fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -65,7 +65,7 @@ const EditProvider = () => {
 
         setSubmitDisabled(true);
         try {
-            const response = await fetch(`${API}/api/v1/provider/${id}`, {
+            const response = await fetch(`${API}/provider/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

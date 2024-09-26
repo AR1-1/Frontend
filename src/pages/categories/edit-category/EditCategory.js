@@ -64,7 +64,7 @@ const EditCategory = () => {
 
         setSubmitDisabled(true);
         try {
-            const response = await fetch(`${API}/api/v1/category/${id}`, {
+            const response = await fetch(`${API}/category/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

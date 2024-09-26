@@ -32,7 +32,7 @@ const Items = () => {
             ...(query && { searchCriteria: query }),
         });
 
-        const url = `${API}/api/v1/article?${params.toString()}`;
+        const url = `${API}/article?${params.toString()}`;
 
         (async () => {
             try {
@@ -59,6 +59,39 @@ const Items = () => {
     const handlePage = (newPage) => {
         setPage(newPage);
     };
+
+
+
+
+    // const handleDelete = async (id) => {
+    //     if (window.confirm('Are you sure you want to delete this items')) {
+    //         try {
+    //             const response = await fetch(`${API}/api/v1/article/${id}`, {
+    //                 method: 'DELETE',
+    //             });
+
+    //             if (response.ok) {
+    //                 alert('item deleted successfully');
+    //                 // Refresh the data
+    //                 setPaginator(prevPaginator => ({
+    //                     ...prevPaginator,
+    //                     items: prevPaginator.items.filter(items=> items.id !== id),
+    //                 }));
+    //             } else {
+    //                 alert('Failed to delete the item');
+    //             }
+    //         } catch (error) {
+    //             console.log(error);
+    //             alert('Error deleting the item');
+    //         }
+    //     }
+    // }
+
+
+
+
+
+
 
     return (
         <div className="items-container">

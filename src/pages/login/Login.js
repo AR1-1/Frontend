@@ -87,7 +87,7 @@ const Login = () => {
                 email: username.trim(),
                 password: password
             }
-            const response = await fetch(`${API}/api/v1/user/login`, {
+            const response = await fetch(`${API}/user/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

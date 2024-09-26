@@ -43,7 +43,7 @@ const Users = () => {
         data.append('page', page);
         data.append('pageSize', pageSize);
 
-        const url = new URL(`${API}/api/v1/user`);
+        const url = new URL(`${API}/user`);
         url.search = new URLSearchParams(data).toString();
         (async () => {
             await fetch(url)

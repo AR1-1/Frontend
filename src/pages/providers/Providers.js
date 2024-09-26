@@ -38,7 +38,7 @@ const Providers = () => {
         data.append('page', page);
         data.append('pageSize', pageSize);
 
-        const url = new URL(`${API}/api/v1/provider`);
+        const url = new URL(`${API}/provider`);
         url.search = new URLSearchParams(data).toString();
         (async () => {
             await fetch(url)

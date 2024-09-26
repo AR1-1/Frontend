@@ -58,7 +58,7 @@ const NewSale = () => {
         }
         setSubmitDisabled(true);
         try {
-            const response = await fetch(`${API}/api/v1/sale`, {
+            const response = await fetch(`${API}/sale`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const NewSale = () => {
                             label="Customer"
                             placeholder="Search for customer..."
                             onSelected={handleCustomerSelect}
-                            apiUrl={`${API}/api/v1/customer`}
+                            apiUrl={`${API}/customer`}
                             optionsAttr="customers"
                             isRequired={true}
                         />
