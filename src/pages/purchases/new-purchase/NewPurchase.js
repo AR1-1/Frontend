@@ -33,7 +33,7 @@ const NewPurchase = () => {
         // Get provider by id
         (async () => {
             try {
-                const response = await fetch(`${API}/api/v1/provider/${providerId}`);
+                const response = await fetch(`${API}/provider/${providerId}`);
                 if (!response.ok) {
                     navigate('/new-purchase');
                     return;
@@ -70,7 +70,7 @@ const NewPurchase = () => {
         }
         setSubmitDisabled(true);
         try {
-            const response = await fetch(`${API}/api/v1/purchase`, {
+            const response = await fetch(`${API}/purchase`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

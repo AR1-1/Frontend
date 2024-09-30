@@ -40,7 +40,7 @@ const NewProvider = () => {
 
         setSubmitDisabled(true);
         try {
-            const response = await fetch(`${API}/api/v1/provider`, {
+            const response = await fetch(`${API}/provider`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

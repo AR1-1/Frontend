@@ -119,7 +119,7 @@ const Items = () => {
                                 <th>WEIGHT</th>
                                 <th>PROVIDER</th>
                                 <th>EDIT</th>
-                                <th>DELETE</th>
+                                {/* <th>DELETE</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -140,11 +140,11 @@ const Items = () => {
                                                 <FontAwesomeIcon icon={faPen} className="pen-icon" />
                                             </Link>
                                         </td>
-                                        <td>
+                                        {/* <td>
                                             <Link to={`/delete-item/${article.articleId}`}>
                                                 <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
                                             </Link>
-                                        </td>
+                                        </td> */}
                                     </tr>
                                 ))
                             ) : (

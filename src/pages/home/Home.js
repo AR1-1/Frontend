@@ -52,22 +52,22 @@ const Home = () => {
                     <tr>
                         <td>Total Items</td>
                         <td>{dataSummary.articles.totalArticles}</td>
-                        <td>{dataSummary.articles.totalArticles > 500 ? 'Sufficient' : 'Low'}</td>
+                        <td>{dataSummary.articles.totalArticles > 5 ? 'Sufficient' : 'Low'}</td>
                     </tr>
                     <tr>
                         <td>Items in Stock</td>
                         <td>{dataSummary.articles.totalStock}</td>
-                        <td>{dataSummary.articles.totalStock > 100 ? 'Sufficient' : 'Low'}</td>
+                        <td>{dataSummary.articles.totalStock > 5 ? 'Sufficient' : 'Low'}</td>
                     </tr>
                     <tr>
                         <td>Total Sales</td>
                         <td>{dataSummary.sales.totalSales}</td>
-                        <td>{dataSummary.sales.totalSales > 200 ? 'High' : 'Low'}</td>
+                        <td>{dataSummary.sales.totalSales > 5 ? 'High' : 'Low'}</td>
                     </tr>
                     <tr>
                         <td>Total Purchases</td>
                         <td>{dataSummary.purchases.totalPurchases}</td>
-                        <td>{dataSummary.purchases.totalPurchases > 200 ? 'High' : 'Low'}</td>
+                        <td>{dataSummary.purchases.totalPurchases > 20 ? 'High' : 'Low'}</td>
                     </tr>
                 </tbody>
             </table>

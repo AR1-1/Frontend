@@ -37,7 +37,7 @@ const Providers = () => {
         }
         data.append('page', page);
         data.append('pageSize', pageSize);
-
+        const API = 'http://localhost:8080';
         const url = new URL(`${API}/provider`);
         url.search = new URLSearchParams(data).toString();
         (async () => {
@@ -82,7 +82,7 @@ const Providers = () => {
                                 <th>PhoneNo</th>
                                 <th>EMAIL</th>
                                 <th>EDIT</th>
-                                <th>DELETE</th>
+                                {/* <th>DELETE</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -98,11 +98,11 @@ const Providers = () => {
                                                 <FontAwesomeIcon icon={faPen} className="pen-icon" />
                                             </Link>
                                         </td>
-                                        <td>
+                                        {/* <td>
                                             <Link to={`/edit-provider/${provider.providerId}`}>
                                                 <FontAwesomeIcon icon={faTrashCan} className="trash-icon" />
                                             </Link>
-                                        </td>
+                                        </td> */}
                                     </tr>
                                 ))
                             ) : (
